@@ -1,0 +1,23 @@
+<?php
+    if (isset($_POST['input']))
+    {
+        echo $id_m = $_POST['idmekanik'];
+        $nama = $_POST['nama'];
+        $alamat = $_POST['alamat'];
+        $telp = $_POST['telp'];
+        $status = $_POST['status'];
+    }
+    include 'vendor/autoload.php';
+        use GuzzleHttp\Client;
+
+            $client = new Client();
+            $data = $client->request('POST','http://localhost/webservice/api/mekanik',[
+            'id_m' => $id_m,
+            'nama' => $nama,
+            'alamat' => $alamat,
+            'telp' => $telp,
+            'status' => $status
+            ]);
+?>
+
+
